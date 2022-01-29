@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class TriggerHitDetection : MonoBehaviour
@@ -23,7 +24,11 @@ public class TriggerHitDetection : MonoBehaviour
             return;
         }
 
-        Debug.Log("Triggered");
         abstractTriggerAction.TriggerAction();
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        abstractTriggerAction.TriggerExit();
     }
 }

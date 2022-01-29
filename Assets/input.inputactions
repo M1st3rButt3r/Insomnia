@@ -33,9 +33,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Test",
+                    "name": "Interact",
                     "type": "Button",
-                    "id": "9f6a9be9-85b6-47c1-8a87-04fd91cbcf96",
+                    "id": "57a87cd1-5821-436a-b987-19984773fd67",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -198,6 +198,15 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "",
+                    "id": "cc8abb26-06fb-4a2f-ad0c-2d89502a59fa",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Interact"
+                },
+                {   
                     "name": "",
                     "id": "6d8f3dcd-84aa-4cee-90a5-b1ba8a02af6e",
                     "path": "<Keyboard>/r",
