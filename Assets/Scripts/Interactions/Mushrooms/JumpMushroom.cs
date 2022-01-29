@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class JumpMushroom : MotherMushroom
@@ -7,6 +6,7 @@ public class JumpMushroom : MotherMushroom
 
     protected override void StartEffect()
     {
+        // TODO make only boost when jumping upwards
         Debug.Log("Applying Effect 'Jump Boost'");
         _oldGravityScale = PlayerController.playerController.rb.gravityScale;
         PlayerController.playerController.rb.gravityScale = 0f;

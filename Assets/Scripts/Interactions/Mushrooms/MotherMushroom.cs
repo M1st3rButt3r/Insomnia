@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +7,7 @@ public class MotherMushroom : MonoBehaviour
     public bool destroyOnEffect;
 
     private float? _interactingSince;
+    private Collider2D _playerCollider;
     private static List<MotherMushroom> _mushrooms = new List<MotherMushroom>();
 
     private void Start()
