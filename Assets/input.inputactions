@@ -33,12 +33,30 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Test",
+                    "name": "Interact",
                     "type": "Button",
-                    "id": "9f6a9be9-85b6-47c1-8a87-04fd91cbcf96",
+                    "id": "57a87cd1-5821-436a-b987-19984773fd67",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Restart",
+                    "type": "Button",
+                    "id": "9913dab7-8784-4b27-822a-49ec772e6020",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=1)",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RestartHold",
+                    "type": "Button",
+                    "id": "affd8171-1a83-4301-a094-48e158c26a2a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold(duration=1,pressPoint=1)",
                     "initialStateCheck": false
                 }
             ],
@@ -199,12 +217,45 @@
                 },
                 {
                     "name": "",
+                    "id": "cc8abb26-06fb-4a2f-ad0c-2d89502a59fa",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "6d8f3dcd-84aa-4cee-90a5-b1ba8a02af6e",
                     "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Test",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d2abbd0d-486b-4b5d-a1db-0555b4046003",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Restart",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "07eb5d65-d6b3-4328-a1f4-f6dcedbe3088",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RestartHold",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
