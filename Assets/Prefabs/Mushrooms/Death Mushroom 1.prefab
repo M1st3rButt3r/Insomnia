@@ -123,4 +123,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionTime: 0
-  destroyOnEffect: 0
+  activeDayTime: 0
+  dieOnWrongDayTime: 1
+  destroyOnEffect: 1

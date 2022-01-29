@@ -10,7 +10,8 @@ public class GameManager : MonoBehaviour
     public bool startedRecording;
     public bool startedReplay;
 
-    private bool _secondRun;
+    [HideInInspector]
+    public bool secondRun;
 
     public GameObject player;
     private GameObject secondPlayer;
@@ -42,7 +43,7 @@ public class GameManager : MonoBehaviour
 
     public void Finish()
     {
-        if (_secondRun)
+        if (secondRun)
         {
             FinishSecondRun();
             return;
@@ -52,7 +53,7 @@ public class GameManager : MonoBehaviour
 
     private void FinishFirstRun()
     {
-        _secondRun = true;
+        secondRun = true;
         player.transform.position = Vector3.zero;
         player.GetComponent<MovementRecorder>().StopRecording();
         PlayerInput.Instance.Input += () =>
@@ -84,7 +85,7 @@ public class GameManager : MonoBehaviour
     {
         PlayerController.playerController.canMove = true;
         deathUI.SetActive(false);
-        if (_secondRun)
+        if (secondRun)
         {
             RestartSecond();
         }

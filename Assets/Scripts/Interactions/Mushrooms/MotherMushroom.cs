@@ -1,9 +1,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum ActiveDayTime
+{
+    DayAndNight,
+    Day,
+    Night
+}
+
 public class MotherMushroom : MonoBehaviour
 {
     public float interactionTime;
+    public ActiveDayTime activeDayTime;
+    public bool dieOnWrongDayTime;
     public bool destroyOnEffect;
 
     private float? _interactingSince;
@@ -24,7 +33,11 @@ public class MotherMushroom : MonoBehaviour
 
         if (_interactingSince + interactionTime >= Time.time)
         {
-            UpdateEffect();
+            ActiveDayTime currentTime = GameManager.Instance.secondRun ? ActiveDayTime.Day : ActiveDayTime.Night;
+            if (activeDayTime == ActiveDayTime.DayAndNight || activeDayTime == currentTime)
+                UpdateEffect();
+            else if (dieOnWrongDayTime)
+                GameManager.Instance.Die("You ate the mushroom at the wrong time!");
             return;
         }
 

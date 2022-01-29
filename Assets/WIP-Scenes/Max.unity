@@ -123,79 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &472756997
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5397761496405788705, guid: dea75c07b23e110478ee0a955e443a74, type: 3}
-      propertyPath: m_Size.x
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5397761496405788705, guid: dea75c07b23e110478ee0a955e443a74, type: 3}
-      propertyPath: m_Size.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5397761496405788705, guid: dea75c07b23e110478ee0a955e443a74, type: 3}
-      propertyPath: m_Offset.x
-      value: -0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 5397761496405788705, guid: dea75c07b23e110478ee0a955e443a74, type: 3}
-      propertyPath: m_Offset.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5397761496405788707, guid: dea75c07b23e110478ee0a955e443a74, type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5397761496405788707, guid: dea75c07b23e110478ee0a955e443a74, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.945
-      objectReference: {fileID: 0}
-    - target: {fileID: 5397761496405788707, guid: dea75c07b23e110478ee0a955e443a74, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.823
-      objectReference: {fileID: 0}
-    - target: {fileID: 5397761496405788707, guid: dea75c07b23e110478ee0a955e443a74, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5397761496405788707, guid: dea75c07b23e110478ee0a955e443a74, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5397761496405788707, guid: dea75c07b23e110478ee0a955e443a74, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5397761496405788707, guid: dea75c07b23e110478ee0a955e443a74, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5397761496405788707, guid: dea75c07b23e110478ee0a955e443a74, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5397761496405788707, guid: dea75c07b23e110478ee0a955e443a74, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5397761496405788707, guid: dea75c07b23e110478ee0a955e443a74, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5397761496405788707, guid: dea75c07b23e110478ee0a955e443a74, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5397761496405788711, guid: dea75c07b23e110478ee0a955e443a74, type: 3}
-      propertyPath: m_Name
-      value: Death Mushroom 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: dea75c07b23e110478ee0a955e443a74, type: 3}
 --- !u!1 &758620659
 GameObject:
   m_ObjectHideFlags: 0
@@ -850,6 +777,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startedRecording: 0
   startedReplay: 0
+  secondRun: 0
   player: {fileID: 1359352574}
   playerPrefab: {fileID: 8465838954298759928, guid: 2a85d6246f69e8844878cdde02268622, type: 3}
   deathUI: {fileID: 758620659}
