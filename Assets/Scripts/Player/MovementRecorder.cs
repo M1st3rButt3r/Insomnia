@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -35,23 +33,33 @@ public class MovementRecorder : MonoBehaviour
 {
     public Dictionary<float, MovementAction> MovementActions = new Dictionary<float, MovementAction>();
 
-    public bool recording;
-    public float recordingStarted;
-    public bool replay;
-    public float replayStarted;
-
-    public Action<Vector2> Move;
+    private bool recording;
+    private float recordingStarted;
+    private bool replay;
+    private float replayStarted;
     
+    private Vector2 moveInput;
+    
+
+    private PlayerController _controller;
     private void Start()
     {
+        _controller = GetComponent<PlayerController>();
         PlayerInput.Instance.Move += RecordMove;
         PlayerInput.Instance.JumpStart += RecordJumpStart;
         PlayerInput.Instance.JumpEnd += RecordJumpEnd;
+        StartRecording();
+        PlayerInput.Instance.Test += () =>
+        {
+            StopRecording();
+            StartReplay();
+        };
     }
 
     private void Update()
     {
         if(replay) Replay();
+        Move();
     }
 
     public void StartRecording()
@@ -69,6 +77,15 @@ public class MovementRecorder : MonoBehaviour
     {
         replay = true;
         replayStarted = Time.time;
+
+        _controller.DeactivateInput();
+    }
+    
+    public void StopReplay()
+    {
+        replay = false;
+        _controller.ActivateInput();
+        
     }
 
     public float GetRecordingTime()
@@ -78,20 +95,20 @@ public class MovementRecorder : MonoBehaviour
 
     private void RecordMove()
     {
-        if(recording)
-            MovementActions.Add(GetRecordingTime(), new MovementAction<Vector2>(MovementActionType.Move, PlayerInput.Instance.moveInput));
+        if (recording)
+            MovementActions.Add(GetRecordingTime() + Random.Range(0.000001f, 0.0000002f), new MovementAction<Vector2>(MovementActionType.Move, PlayerInput.Instance.moveInput));
     }
 
     private void RecordJumpStart()
     {
         if(recording)
-            MovementActions.Add(GetRecordingTime(), new MovementAction(MovementActionType.JumpStart));
+            MovementActions.Add(GetRecordingTime() + Random.Range(0.00000005f, 0.00000001f), new MovementAction(MovementActionType.JumpStart));
     }
     
     private void RecordJumpEnd()
     {
         if(recording)
-            MovementActions.Add(GetRecordingTime(), new MovementAction(MovementActionType.JumpEnd));
+            MovementActions.Add(GetRecordingTime() + Random.Range(0.00000001f, 0.000000003f), new MovementAction(MovementActionType.JumpEnd));
     }
 
     private void Replay()
@@ -99,17 +116,41 @@ public class MovementRecorder : MonoBehaviour
         for (int i = 0; i < MovementActions.Count; i++)
         {
             if (replayStarted + MovementActions.Keys.ToList()[i] > Time.time) return;
+
             switch (MovementActions.Values.ToList()[i].ActionType)
             {
                 case MovementActionType.Move:
                     ReplayMove((MovementAction<Vector2>)MovementActions.Values.ToList()[i]);
                     break;
+                case MovementActionType.JumpStart:
+                    ReplayJumpStart();
+                    break;
+                case MovementActionType.JumpEnd:
+                    ReplayJumpEnd();
+                    break;
             }
+
+            MovementActions.Remove(MovementActions.Keys.ToList()[i]);
         }
     }
 
     private void ReplayMove(MovementAction<Vector2> action)
     {
-        Move.Invoke(action.Value);
+        moveInput = action.Value;
+    }
+    
+    private void ReplayJumpStart()
+    {
+        _controller.JumpStart();
+    }
+    
+    private void ReplayJumpEnd()
+    {
+        _controller.JumpEnd();
+    }
+
+    private void Move()
+    {
+        _controller.Move(moveInput);
     }
 }

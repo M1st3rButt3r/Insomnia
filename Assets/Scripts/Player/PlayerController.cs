@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public float jumpForce;
     public float koyoteTime;
     public float jumpTime;
+    public bool canMove = true;
 
     private Rigidbody2D _rb;
     private bool _grounded;
@@ -30,11 +31,11 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         Grounded();
-        Move(PlayerInput.Instance.moveInput);
         if(_isJumping) Jumping();
+        if(canMove) Move(PlayerInput.Instance.moveInput);
     }
 
-    private void Move(Vector2 input)
+    public void Move(Vector2 input)
     {
         _rb.velocity = new Vector2(input.x * speed * Time.fixedDeltaTime, _rb.velocity.y);
     }
@@ -54,7 +55,7 @@ public class PlayerController : MonoBehaviour
         if (_grounded) _lastGrounded = Time.time;
     }
 
-    private void JumpStart()
+    public void JumpStart()
     {
         if(!_grounded && _lastGrounded + koyoteTime <= Time.time) return;
         _rb.velocity = new Vector2(_rb.velocity.x, 0);
@@ -74,8 +75,24 @@ public class PlayerController : MonoBehaviour
         _rb.velocity = new Vector2(_rb.velocity.x, jumpForce * Time.fixedDeltaTime);
     }
 
-    private void JumpEnd()
+    public void JumpEnd()
     {
         _isJumping = false;
+    }
+
+    public void DeactivateInput()
+    {
+        if(canMove == false) return;
+        canMove = false;
+        PlayerInput.Instance.JumpStart -= JumpStart;
+        PlayerInput.Instance.JumpEnd -= JumpEnd;
+    }
+    
+    public void ActivateInput()
+    {
+        if(canMove == true) return;
+        canMove = true;
+        PlayerInput.Instance.JumpStart += JumpStart;
+        PlayerInput.Instance.JumpEnd += JumpEnd;
     }
 }
