@@ -11,6 +11,7 @@ public class PlayerInput : MonoBehaviour
     public Action Move;
     public Action JumpStart;
     public Action JumpEnd;
+    public Action Interact;
     public Action Test;
 
     private void Awake()
@@ -21,7 +22,7 @@ public class PlayerInput : MonoBehaviour
     private void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
-        Move.Invoke();
+        Move?.Invoke();
     }
 
     private void OnJumpStart()
@@ -37,5 +38,10 @@ public class PlayerInput : MonoBehaviour
     private void OnTest()
     {
         Test?.Invoke();
+    }
+
+    private void OnInteract()
+    {
+        Interact?.Invoke();
     }
 }
