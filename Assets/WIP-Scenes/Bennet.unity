@@ -315,6 +315,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1130731833}
   - component: {fileID: 1130731832}
+  - component: {fileID: 1130731835}
+  - component: {fileID: 1130731834}
   m_Layer: 0
   m_Name: PP
   m_TagString: Untagged
@@ -338,7 +340,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: b5a7a51511c69f9468b0baf3600e423b, type: 2}
+  sharedProfile: {fileID: 11400000, guid: 37f0aa1759a2e594b8bccc6798ea5930, type: 2}
 --- !u!4 &1130731833
 Transform:
   m_ObjectHideFlags: 0
@@ -353,6 +355,40 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1130731834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130731831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6df900a53ba0c3e43a95f10e4b6b2da7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToFade: 10
+  fadeStarted: 0
+  activeProfile: 0
+  day: {fileID: 1130731832}
+  night: {fileID: 1130731835}
+--- !u!114 &1130731835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130731831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 0
+  sharedProfile: {fileID: 11400000, guid: b5a7a51511c69f9468b0baf3600e423b, type: 2}
 --- !u!1 &1276364975
 GameObject:
   m_ObjectHideFlags: 0
