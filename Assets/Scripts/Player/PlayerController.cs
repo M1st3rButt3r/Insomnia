@@ -10,10 +10,14 @@ public class PlayerController : MonoBehaviour
     public float koyoteTime;
     public float jumpTime;
     public bool canMove = true;
+    
+    [HideInInspector]
+    public Rigidbody2D rb;
+
+    public static PlayerController playerController;
 
     public AudioClip jumptest;
 
-    private Rigidbody2D _rb;
     private bool _grounded;
     private float _lastGrounded;
     private bool _isJumping;
@@ -21,7 +25,8 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        _rb = GetComponent<Rigidbody2D>();
+        playerController = this;
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void Start()
@@ -42,7 +47,7 @@ public class PlayerController : MonoBehaviour
 
     public void Move(Vector2 input)
     {
-        _rb.velocity = new Vector2(input.x * speed * Time.fixedDeltaTime, _rb.velocity.y);
+        rb.velocity = new Vector2(input.x * speed * Time.fixedDeltaTime, rb.velocity.y);
     }
 
     private void Grounded()
@@ -63,8 +68,8 @@ public class PlayerController : MonoBehaviour
     public void JumpStart()
     {
         if(!_grounded && _lastGrounded + koyoteTime <= Time.time) return;
-        _rb.velocity = new Vector2(_rb.velocity.x, 0);
-        _rb.AddForce(Vector2.up * jumpForce);
+        rb.velocity = new Vector2(rb.velocity.x, 0);
+        rb.AddForce(Vector2.up * jumpForce);
         _isJumping = true;
         _jumpUntil = Time.time + jumpTime;
         //SoundManager.Instance.PlayBGM(jumptest, SoundManager.SFX);
@@ -78,7 +83,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        _rb.velocity = new Vector2(_rb.velocity.x, jumpForce * Time.fixedDeltaTime);
+        rb.velocity = new Vector2(rb.velocity.x, jumpForce * Time.fixedDeltaTime);
     }
 
     public void JumpEnd()
