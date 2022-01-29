@@ -32,7 +32,7 @@ public class TriggerFallToSideAction : AbstractTriggerAction
         transform.Rotate(new Vector3(0, 0, -_fallingSpeed * Time.deltaTime));
     }
 
-    public override void TriggerAction()
+    public override void CollisionAction()
     {
         _isFalling = true;
     }

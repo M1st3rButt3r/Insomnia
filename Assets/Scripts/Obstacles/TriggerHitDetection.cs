@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 
 public class TriggerHitDetection : MonoBehaviour
@@ -6,14 +7,18 @@ public class TriggerHitDetection : MonoBehaviour
     [SerializeField]
     public AbstractTriggerAction abstractTriggerAction;
 
-    private void OnTriggerEnter2D(Collider2D col)
+    private void OnCollisionEnter2D(Collision2D col)
     {
-        if (!col.CompareTag("Player"))
+        if (!col.collider.CompareTag("Player"))
         {
             return;
         }
+        abstractTriggerAction.CollisionAction();
+    }
 
-        abstractTriggerAction.TriggerAction();
+    private void OnCollisionExit2D(Collision2D col)
+    {
+        abstractTriggerAction.CollisionExit();
     }
 
     private void OnTriggerExit2D(Collider2D other)
