@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 899c54efeace73346a0a16faa3afe726, type: 3}
   m_Name: Vignette
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   m_AdvancedMode: 0
   color:
     m_OverrideState: 1
@@ -25,12 +25,12 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.332
+    m_Value: 0.094
     min: 0
     max: 1
   smoothness:
     m_OverrideState: 1
-    m_Value: 0.44
+    m_Value: 0.198
     min: 0.01
     max: 1
   rounded:
@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 558a8e2b6826cf840aae193990ba9f2e, type: 3}
   m_Name: ShadowsMidtonesHighlights
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   m_AdvancedMode: 0
   shadows:
     m_OverrideState: 1
@@ -127,7 +127,7 @@ MonoBehaviour:
     m_Value: {x: 0.68816614, y: 0.8487098, z: 1, w: -0.18181819}
   highlights:
     m_OverrideState: 1
-    m_Value: {x: 0.87037325, y: 0.9132438, z: 1, w: 0}
+    m_Value: {x: 1, y: 0.96934956, z: 0.9923398, w: 0}
   shadowsStart:
     m_OverrideState: 1
     m_Value: 0
