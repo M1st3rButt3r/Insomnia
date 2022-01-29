@@ -1,4 +1,5 @@
 using System.Runtime.CompilerServices;
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,6 +14,7 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     private GameObject secondPlayer;
     public GameObject playerPrefab;
+    public CinemachineVirtualCamera Camera;
 
     private void Awake()
     {
@@ -59,6 +61,7 @@ public class GameManager : MonoBehaviour
         };
         player.GetComponent<SpriteRenderer>().color = Color.red;
         secondPlayer = Instantiate(playerPrefab);
+        Camera.Follow = secondPlayer.transform;
     }
     
     private void FinishSecondRun()
