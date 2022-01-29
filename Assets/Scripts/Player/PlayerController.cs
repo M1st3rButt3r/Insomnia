@@ -30,13 +30,13 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         Grounded();
-        Move();
+        Move(PlayerInput.Instance.moveInput);
         if(_isJumping) Jumping();
     }
 
-    private void Move()
+    private void Move(Vector2 input)
     {
-        _rb.velocity = new Vector2(PlayerInput.Instance.moveInput.x * speed * Time.fixedDeltaTime, _rb.velocity.y);
+        _rb.velocity = new Vector2(input.x * speed * Time.fixedDeltaTime, _rb.velocity.y);
     }
 
     private void Grounded()

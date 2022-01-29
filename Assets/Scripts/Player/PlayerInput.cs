@@ -8,6 +8,7 @@ public class PlayerInput : MonoBehaviour
 
     [HideInInspector]
     public Vector2 moveInput;
+    public Action Move;
     public Action JumpStart;
     public Action JumpEnd;
 
@@ -18,6 +19,7 @@ public class PlayerInput : MonoBehaviour
 
     private void OnMove(InputValue value)
     {
+        Move.Invoke();
         moveInput = value.Get<Vector2>();
     }
 
