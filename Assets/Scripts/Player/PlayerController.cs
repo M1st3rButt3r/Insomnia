@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -44,14 +41,16 @@ public class PlayerController : MonoBehaviour
 
     private void Grounded()
     {
-        Vector2 origin1 = transform.position - new Vector3(0, transform.localScale.y/2);
-        Vector2 origin2 = transform.position - new Vector3(-transform.localScale.x, transform.localScale.y)/2;
-        Vector2 origin3 = transform.position - transform.localScale /2;
+        Vector3 position = transform.position;
+        Vector3 scale = transform.localScale;
+        Vector2 origin1 = position - new Vector3(0, scale.y/2);
+        Vector2 origin2 = position - new Vector3(-scale.x, scale.y)/2;
+        Vector2 origin3 = position - scale /2;
 
-        bool origin1bool = Physics2D.Raycast(origin1, Vector2.down, raycastLength, ground);
-        bool origin2bool = Physics2D.Raycast(origin2, Vector2.down, raycastLength, ground);
-        bool origin3bool = Physics2D.Raycast(origin3, Vector2.down, raycastLength, ground);
-        _grounded =  origin1bool || origin2bool || origin3bool;
+        bool origin1Bool = Physics2D.Raycast(origin1, Vector2.down, raycastLength, ground);
+        bool origin2Bool = Physics2D.Raycast(origin2, Vector2.down, raycastLength, ground);
+        bool origin3Bool = Physics2D.Raycast(origin3, Vector2.down, raycastLength, ground);
+        _grounded =  origin1Bool || origin2Bool || origin3Bool;
         if (_grounded) _lastGrounded = Time.time;
     }
 
