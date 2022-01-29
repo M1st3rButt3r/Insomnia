@@ -12,6 +12,7 @@ public enum MovementActionType
 public class MovementAction
 {
     public MovementActionType ActionType;
+    public bool Replayed = false;
 
     public MovementAction(MovementActionType actionType)
     {
@@ -51,6 +52,7 @@ public class MovementRecorder : MonoBehaviour
         StartRecording();
         PlayerInput.Instance.Test += () =>
         {
+            ResetReplay();
             StopRecording();
             StartReplay();
         };
@@ -66,6 +68,7 @@ public class MovementRecorder : MonoBehaviour
     {
         recording = true;
         recordingStarted = Time.time;
+        MovementActions = new Dictionary<float, MovementAction>();
     }
     
     public void StopRecording()
@@ -85,7 +88,14 @@ public class MovementRecorder : MonoBehaviour
     {
         replay = false;
         _controller.ActivateInput();
-        
+    }
+
+    public void ResetReplay()
+    {
+        foreach (var action in MovementActions.Values)
+        {
+            action.Replayed = false;
+        }
     }
 
     public float GetRecordingTime()
@@ -116,7 +126,8 @@ public class MovementRecorder : MonoBehaviour
         for (int i = 0; i < MovementActions.Count; i++)
         {
             if (replayStarted + MovementActions.Keys.ToList()[i] > Time.time) return;
-
+            if(MovementActions.Values.ToList()[i].Replayed) continue;
+            
             switch (MovementActions.Values.ToList()[i].ActionType)
             {
                 case MovementActionType.Move:
@@ -129,8 +140,7 @@ public class MovementRecorder : MonoBehaviour
                     ReplayJumpEnd();
                     break;
             }
-
-            MovementActions.Remove(MovementActions.Keys.ToList()[i]);
+            MovementActions.Values.ToList()[i].Replayed = true;
         }
     }
 
