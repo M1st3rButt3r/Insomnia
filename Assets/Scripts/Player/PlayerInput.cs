@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,9 +8,9 @@ public class PlayerInput : MonoBehaviour
 
     [HideInInspector]
     public Vector2 moveInput;
-    public Action jump;
-    public float jumping;
-    
+    public Action JumpStart;
+    public Action JumpEnd;
+
     private void Awake()
     {
         Instance = this;
@@ -25,12 +23,11 @@ public class PlayerInput : MonoBehaviour
 
     private void OnJumpStart()
     {
-        jump?.Invoke();
-        jumping = Time.time;
+        JumpStart?.Invoke();
     }
 
     private void OnJumpEnd()
     {
-        jumping = 0f;
+        JumpEnd?.Invoke();
     }
 }

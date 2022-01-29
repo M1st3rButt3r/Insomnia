@@ -16,18 +16,25 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rb;
     private bool _grounded;
     private float _lastGrounded;
+    private bool _isJumping;
+    private float _jumpUntil;
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
-        PlayerInput.Instance.jump += Jump;
+    }
+
+    private void Start()
+    {
+        PlayerInput.Instance.JumpStart += JumpStart;
+        PlayerInput.Instance.JumpEnd += JumpEnd;
     }
 
     void Update()
     {
         Grounded();
         Move();
-        VariableJump();
+        if(_isJumping) Jumping();
     }
 
     private void Move()
@@ -48,17 +55,28 @@ public class PlayerController : MonoBehaviour
         if (_grounded) _lastGrounded = Time.time;
     }
 
-    private void Jump()
+    private void JumpStart()
     {
         if(!_grounded && _lastGrounded + koyoteTime <= Time.time) return;
         _rb.velocity = new Vector2(_rb.velocity.x, 0);
         _rb.AddForce(Vector2.up * jumpForce);
+        _isJumping = true;
+        _jumpUntil = Time.time + jumpTime;
     }
 
-    private void VariableJump()
+    private void Jumping()
     {
-        if (_grounded || PlayerInput.Instance.jumping + jumpTime < Time.time) return;
-        _rb.AddForce(Vector2.up * Time.deltaTime * 400);
-        Debug.Log("JumpHold");
+        if (_jumpUntil < Time.time)
+        {
+            _isJumping = false;
+            return;
+        }
+
+        _rb.velocity = new Vector2(_rb.velocity.x, jumpForce * Time.deltaTime);
+    }
+
+    private void JumpEnd()
+    {
+        _isJumping = false;
     }
 }
