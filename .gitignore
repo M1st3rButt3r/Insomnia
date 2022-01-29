@@ -59,4 +59,7 @@ sysinfo.txt
 crashlytics-build.properties
 
 # JetBrains Rider Files
-/.idea/
+**/.idea/
+
+# Apple .DS_STORE files
+**/.DS_STORE
