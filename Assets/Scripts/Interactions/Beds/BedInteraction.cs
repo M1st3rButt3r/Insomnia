@@ -1,31 +1,31 @@
 ﻿using UnityEngine;
 
-public class BedInteraction : AbstractTriggerAction
+public class BedInteraction : MonoBehaviour
 {
-    protected bool CanInteract;
+    private bool CanInteract;
 
     private void Start()
     {
         PlayerInput.Instance.Interact += Interact;
     }
     
-    public override void TriggerAction()
+    private void OnTriggerEnter2D(Collider2D other)
     {
         CanInteract = true;
     }
-
-    public override void TriggerExit()
+    
+    private void OnTriggerExit2D(Collider2D other)
     {
         CanInteract = false;
     }
+        
 
-    protected virtual void Interact()
+    private void Interact()
     {
         if (! CanInteract)
         {
             return;
         }
-        
-        Debug.Log($"E pressed on bed interact (Name: {gameObject.name})");
+        GameManager.Instance.Finish();
     }
 }
