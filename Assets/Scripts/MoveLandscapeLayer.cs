@@ -18,6 +18,6 @@ public class MoveLandscapeLayer : MonoBehaviour
     private void Update()
     {
         Vector3 position = this.transform.position;
-        this.transform.position.Set(_referencePosition.position.x * transformValue, position.y, position.z);
+        this.transform.position = new Vector3(_referencePosition.position.x * transformValue, position.y, position.z);
     }
 }

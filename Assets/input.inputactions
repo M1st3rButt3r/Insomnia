@@ -204,7 +204,16 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Interact",
+                    "action": "Interact"
+                },
+                {   
+                    "name": "",
+                    "id": "6d8f3dcd-84aa-4cee-90a5-b1ba8a02af6e",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Test",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
