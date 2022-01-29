@@ -10,6 +10,8 @@ public class SoundManager : MonoBehaviour
 
     public GameObject _camera;
 
+    public AudioClip menuclick1;
+
     public static string SFX = "SFX";
     public static string BGM = "BGM";
     public static string Menu = "Menu";
@@ -22,6 +24,11 @@ public class SoundManager : MonoBehaviour
     public void SetLevel (float sliderValue)
     {
         audioMixer.SetFloat("Master_Volume", Mathf.Log10(sliderValue) * 20);
+    }
+
+    public void PlayMenuClick()
+    {
+        PlayBGM(menuclick1, Menu);
     }
 
 
