@@ -9,7 +9,7 @@ public class BedInteraction : AbstractTriggerAction
         PlayerInput.Instance.Interact += Interact;
     }
     
-    public override void TriggerAction()
+    public override void CollisionAction()
     {
         CanInteract = true;
     }

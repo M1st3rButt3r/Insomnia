@@ -25,7 +25,7 @@ public class TriggerMoveAction : AbstractTriggerAction
         }
     }
 
-    public override void TriggerAction()
+    public override void CollisionAction()
     {
         _theySeeMeRolling = true;
     }
