@@ -1,10 +1,19 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class MotherMushroom : MonoBehaviour
 {
     public float interactionTime;
+    public bool destroyOnEffect;
 
     private float? _interactingSince;
+    private static List<MotherMushroom> _mushrooms = new List<MotherMushroom>();
+
+    private void Start()
+    {
+        _mushrooms.Add(this);
+    }
 
     private void FixedUpdate()
     {
@@ -28,7 +37,23 @@ public class MotherMushroom : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             _interactingSince = Time.time;
+            
+            if (destroyOnEffect)
+            {
+                Destroy(GetComponent<BoxCollider2D>());
+                Destroy(GetComponent<SpriteRenderer>());
+            }
+
             StartEffect();
+        }
+    }
+
+    public static void ResetAll()
+    {
+        foreach (MotherMushroom mushroom in _mushrooms)
+        {
+            Instantiate(mushroom.gameObject);
+            Destroy(mushroom.gameObject);
         }
     }
 
