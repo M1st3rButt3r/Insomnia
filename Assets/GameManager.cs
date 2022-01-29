@@ -1,15 +1,17 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    public bool startedRecording;
+    public bool startedReplay;
 
-    private bool secondRun;
+    private bool _secondRun;
 
     public GameObject player;
+    private GameObject secondPlayer;
     public GameObject playerPrefab;
 
     private void Awake()
@@ -17,9 +19,24 @@ public class GameManager : MonoBehaviour
         Instance = this;
     }
 
+    private void Start()
+    {     
+        PlayerInput.Instance.Input += () =>
+        { 
+            if (!startedRecording)
+            {
+                player.GetComponent<MovementRecorder>().StartRecording();
+                startedRecording = true;
+            }
+        };
+
+        PlayerInput.Instance.Restart += Restart;
+        PlayerInput.Instance.RestartHold += RestartFull;
+    }     
+
     public void Finish()
     {
-        if (secondRun)
+        if (_secondRun)
         {
             FinishSecondRun();
             return;
@@ -29,16 +46,48 @@ public class GameManager : MonoBehaviour
 
     private void FinishFirstRun()
     {
-        secondRun = true;
+        _secondRun = true;
         player.transform.position = Vector3.zero;
         player.GetComponent<MovementRecorder>().StopRecording();
-        player.GetComponent<MovementRecorder>().StartReplay();
+        PlayerInput.Instance.Input += () =>
+        {
+            if (!startedReplay)
+            {
+                player.GetComponent<MovementRecorder>().StartReplay();
+                startedReplay = true;
+            }
+        };
         player.GetComponent<SpriteRenderer>().color = Color.red;
-        Instantiate(playerPrefab);
+        secondPlayer = Instantiate(playerPrefab);
     }
     
     private void FinishSecondRun()
     {
         Debug.Log("Finished Level");
+    }
+
+    public void Restart()
+    {
+        if (_secondRun)
+        {
+            RestartSecond();
+        }
+        else
+        {
+            RestartFull();
+        }
+    }
+
+    private void RestartSecond()
+    {
+        startedReplay = false;
+        player.GetComponent<MovementRecorder>().StopReplay();
+        player.transform.position = Vector3.zero;
+        secondPlayer.transform.position = Vector3.zero;
+    }
+
+    public void RestartFull()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
