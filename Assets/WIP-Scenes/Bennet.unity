@@ -468,7 +468,7 @@ MonoBehaviour:
     m_Bits: 64
   jumpForce: 400
   koyoteTime: 0.1
-  jumpTime: 0.3
+  jumpTime: 0.2
 --- !u!114 &1984385114
 MonoBehaviour:
   m_ObjectHideFlags: 0

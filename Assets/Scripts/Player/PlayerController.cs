@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
         PlayerInput.Instance.JumpEnd += JumpEnd;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         Grounded();
         Move();
@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        _rb.velocity = new Vector2(PlayerInput.Instance.moveInput.x * speed * Time.deltaTime, _rb.velocity.y);
+        _rb.velocity = new Vector2(PlayerInput.Instance.moveInput.x * speed * Time.fixedDeltaTime, _rb.velocity.y);
     }
 
     private void Grounded()
@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        _rb.velocity = new Vector2(_rb.velocity.x, jumpForce * Time.deltaTime);
+        _rb.velocity = new Vector2(_rb.velocity.x, jumpForce * Time.fixedDeltaTime);
     }
 
     private void JumpEnd()
