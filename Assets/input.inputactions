@@ -35,7 +35,7 @@
                 {
                     "name": "Test",
                     "type": "Button",
-                    "id": "a7e086db-cad5-4c59-91e3-062b091fdf5f",
+                    "id": "9f6a9be9-85b6-47c1-8a87-04fd91cbcf96",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -199,7 +199,7 @@
                 },
                 {
                     "name": "",
-                    "id": "b8b1f363-b207-477b-b107-47aee091c655",
+                    "id": "6d8f3dcd-84aa-4cee-90a5-b1ba8a02af6e",
                     "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
