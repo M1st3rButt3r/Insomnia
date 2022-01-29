@@ -1,4 +1,5 @@
 using System;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class TriggerSwapStateAction : AbstractTriggerAction
@@ -14,9 +15,10 @@ public class TriggerSwapStateAction : AbstractTriggerAction
         _initialSprite = GetComponent<SpriteRenderer>().sprite;
     }
 
-    public override void TriggerAction()
+    public override void CollisionExit()
     {
         _isChanged = !_isChanged;
         GetComponent<SpriteRenderer>().sprite = _isChanged || !shouldToggleSprites ? toggleSprite: _initialSprite;
+        this.GetComponent<Collider2D>().enabled = false;
     }
 }
