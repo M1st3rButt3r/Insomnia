@@ -26,7 +26,10 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        PlayerInput.Instance.JumpStart += JumpStart;
+        PlayerInput.Instance.JumpStart += () =>
+        {
+            if(canMove) JumpStart();
+        };
         PlayerInput.Instance.JumpEnd += JumpEnd;
     }
 
@@ -86,17 +89,11 @@ public class PlayerController : MonoBehaviour
 
     public void DeactivateInput()
     {
-        if(canMove == false) return;
         canMove = false;
-        PlayerInput.Instance.JumpStart -= JumpStart;
-        PlayerInput.Instance.JumpEnd -= JumpEnd;
     }
     
     public void ActivateInput()
     {
-        if(canMove == true) return;
         canMove = true;
-        PlayerInput.Instance.JumpStart += JumpStart;
-        PlayerInput.Instance.JumpEnd += JumpEnd;
     }
 }
