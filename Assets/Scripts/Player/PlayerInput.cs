@@ -11,6 +11,7 @@ public class PlayerInput : MonoBehaviour
     public Action Move;
     public Action JumpStart;
     public Action JumpEnd;
+    public Action Interact;
     public Action Test;
 
     private void Awake()
