@@ -776,6 +776,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Ingame",
+            "id": "55a4f788-06ad-436c-93ea-6437adc51b75",
+            "actions": [
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "8ebc8302-d959-41f5-aef6-f0f0ca38a079",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "6bc5e02c-db45-4eb6-a531-94803bd48181",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
