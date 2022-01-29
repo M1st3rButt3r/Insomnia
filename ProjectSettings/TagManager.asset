@@ -38,11 +38,20 @@ TagManager:
   - 
   - Player
   m_SortingLayers:
-  - name: Hintergrund
+  - name: Background
     uniqueID: 1661380163
+    locked: 0
+  - name: BehindPlayer
+    uniqueID: 263927669
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: InFrontofPlayer
+    uniqueID: 2037825479
+    locked: 0
+  - name: Fog
+    uniqueID: 3739508441
     locked: 0
   - name: Buttons
     uniqueID: 3624384577
