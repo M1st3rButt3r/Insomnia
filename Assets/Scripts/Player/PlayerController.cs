@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
         _rb.AddForce(Vector2.up * jumpForce);
         _isJumping = true;
         _jumpUntil = Time.time + jumpTime;
-        SoundManager.Instance.PlayBGM(jumptest, SoundManager.SFX);
+        //SoundManager.Instance.PlayBGM(jumptest, SoundManager.SFX);
     }
 
     private void Jumping()
