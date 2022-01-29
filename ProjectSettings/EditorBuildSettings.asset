@@ -6,15 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Final-Scenes/Main.unity
+    path: Assets/Final-Scenes/Menu.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/WIP-Scenes/MenuMoritz.unity
-    guid: 8a41db9e0358aa74f8ceeb5001f5e81b
+    path: Assets/Final-Scenes/Level1.unity
+    guid: 29b50dba0e8644fee888a8ecb6f92b2f
   - enabled: 1
-    path: Assets/WIP-Scenes/Moritz2.unity
-    guid: 3465c19061b393045a6cc64882e06d67
-  - enabled: 1
-    path: Assets/WIP-Scenes/Bennet.unity
-    guid: 74c10206c49cd45ed8bf0ba54eea36c1
+    path: Assets/Final-Scenes/Level2.unity
+    guid: 01ba3c109731b4f6a9625095a3c9dde4
   m_configObjects: {}

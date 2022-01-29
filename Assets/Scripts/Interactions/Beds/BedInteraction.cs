@@ -19,7 +19,6 @@ public class BedInteraction : MonoBehaviour
     {
         CanInteract = false;
     }
-        
 
     private void Interact()
     {
