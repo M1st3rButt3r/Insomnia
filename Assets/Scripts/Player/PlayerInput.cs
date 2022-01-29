@@ -21,7 +21,7 @@ public class PlayerInput : MonoBehaviour
     private void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
-        Move.Invoke();
+        Move?.Invoke();
     }
 
     private void OnJumpStart()
