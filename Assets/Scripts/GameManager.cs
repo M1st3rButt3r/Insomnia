@@ -1,5 +1,6 @@
 using System.Runtime.CompilerServices;
 using Cinemachine;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,6 +16,9 @@ public class GameManager : MonoBehaviour
     private GameObject secondPlayer;
     public GameObject playerPrefab;
     public CinemachineVirtualCamera Camera;
+
+    public GameObject deathUI;
+    public TMP_Text deathUIModifyableText;
 
     private void Awake()
     {
@@ -69,8 +73,17 @@ public class GameManager : MonoBehaviour
         Debug.Log("Finished Level");
     }
 
+    public void Die(string reason)
+    {
+        PlayerController.playerController.canMove = false;
+        deathUIModifyableText.text = reason;
+        deathUI.SetActive(true);
+    }
+
     public void Restart()
     {
+        PlayerController.playerController.canMove = true;
+        deathUI.SetActive(false);
         if (_secondRun)
         {
             RestartSecond();
