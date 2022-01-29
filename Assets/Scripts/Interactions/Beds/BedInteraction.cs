@@ -9,6 +9,7 @@ public class BedInteraction : MonoBehaviour
         PlayerInput.Instance.Interact += Interact;
     }
     
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         CanInteract = true;
