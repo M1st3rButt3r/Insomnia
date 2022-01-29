@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     public float koyoteTime;
     public float jumpTime;
 
+    public AudioClip jumptest;
+
     private Rigidbody2D _rb;
     private bool _grounded;
     private float _lastGrounded;
@@ -61,6 +63,7 @@ public class PlayerController : MonoBehaviour
         _rb.AddForce(Vector2.up * jumpForce);
         _isJumping = true;
         _jumpUntil = Time.time + jumpTime;
+        //SoundManager.Instance.PlayBGM(jumptest, SoundManager.SFX);
     }
 
     private void Jumping()
@@ -77,5 +80,6 @@ public class PlayerController : MonoBehaviour
     private void JumpEnd()
     {
         _isJumping = false;
+        
     }
 }
