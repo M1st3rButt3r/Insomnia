@@ -49,10 +49,8 @@ public class MovementRecorder : MonoBehaviour
         PlayerInput.Instance.Move += RecordMove;
         PlayerInput.Instance.JumpStart += RecordJumpStart;
         PlayerInput.Instance.JumpEnd += RecordJumpEnd;
-        StartRecording();
         PlayerInput.Instance.Test += () =>
         {
-            ResetReplay();
             StopRecording();
             StartReplay();
         };
@@ -78,9 +76,10 @@ public class MovementRecorder : MonoBehaviour
 
     public void StartReplay()
     {
+        ResetReplay();
         replay = true;
         replayStarted = Time.time;
-
+        
         _controller.DeactivateInput();
     }
     
