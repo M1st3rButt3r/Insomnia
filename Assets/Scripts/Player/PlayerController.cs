@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
@@ -16,12 +17,17 @@ public class PlayerController : MonoBehaviour
 
     public static PlayerController playerController;
 
-    public AudioClip jumptest;
+    public AudioClip walk;
+    private bool _iswalking;
+    public AudioClip jump;
+    public AudioClip levitate;
+    
 
     private bool _grounded;
     private float _lastGrounded;
     private bool _isJumping;
     private float _jumpUntil;
+    private Vector2 _oldmove;
 
     private void Awake()
     {
@@ -48,8 +54,19 @@ public class PlayerController : MonoBehaviour
     public void Move(Vector2 input)
     {
         rb.velocity = new Vector2(input.x * speed * Time.fixedDeltaTime, rb.velocity.y);
+        if(_oldmove != input && !_iswalking)
+        {
+            SoundManager.Instance.PlayBGM(walk, SoundManager.SFX);
+            StartCoroutine("walkingsound");
+            _iswalking = true;            
+        }
+        _oldmove = input;
+        
     }
-
+    IEnumerator walkingsound(){
+        yield return new WaitForSeconds(walk.length);
+        _iswalking = false;
+    }
     private void Grounded()
     {
         Vector3 position = transform.position;
@@ -72,7 +89,7 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(Vector2.up * jumpForce);
         _isJumping = true;
         _jumpUntil = Time.time + jumpTime;
-        //SoundManager.Instance.PlayBGM(jumptest, SoundManager.SFX);
+        SoundManager.Instance.PlayBGM(jump, SoundManager.SFX);
     }
 
     private void Jumping()
