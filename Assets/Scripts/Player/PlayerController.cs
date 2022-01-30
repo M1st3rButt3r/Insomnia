@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
     public void Move(Vector2 input)
     {
         rb.velocity = new Vector2(input.x * speed * Time.fixedDeltaTime, rb.velocity.y);
-        if(_oldmove != input && !_iswalking)
+        if(_oldmove != input && !_iswalking && _grounded)
         {
             SoundManager.Instance.PlayBGM(walk, SoundManager.SFX);
             StartCoroutine("walkingsound");
