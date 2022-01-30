@@ -1,22 +1,7 @@
 fileFormatVersion: 2
-guid: 188f33a20c97b42d0b3ca8d049adb6eb
+guid: a246265cba0396241ad743139c23d155
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -1917738745092128133
-    second: stones_night_0
-  - first:
-      213: -9210176378190754074
-    second: stones_night_1
-  - first:
-      213: -8153577470522486832
-    second: stones_night_2
-  - first:
-      213: -6105038377430816522
-    second: stones_night_3
-  - first:
-      213: 8242613954888941416
-    second: stones_night_4
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -56,7 +41,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -90,138 +75,9 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: stones_night_0
-      rect:
-        serializedVersion: 2
-        x: 552
-        y: 1708
-        width: 1775
-        height: 1127
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b72c7ce95c2d265e0800000000000000
-      internalID: -1917738745092128133
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: stones_night_1
-      rect:
-        serializedVersion: 2
-        x: 733
-        y: 1397
-        width: 219
-        height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6ee0f33b161ee2080800000000000000
-      internalID: -9210176378190754074
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: stones_night_2
-      rect:
-        serializedVersion: 2
-        x: 1536
-        y: 896
-        width: 680
-        height: 683
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0df01e47d7ca8de80800000000000000
-      internalID: -8153577470522486832
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: stones_night_3
-      rect:
-        serializedVersion: 2
-        x: 757
-        y: 921
-        width: 125
-        height: 152
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6f8eb1d01fb864ba0800000000000000
-      internalID: -6105038377430816522
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: stones_night_4
-      rect:
-        serializedVersion: 2
-        x: 696
-        y: 131
-        width: 1225
-        height: 518
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 86f35d188b5a36270800000000000000
-      internalID: 8242613954888941416
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
