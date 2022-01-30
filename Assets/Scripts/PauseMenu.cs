@@ -29,6 +29,8 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         Paused = false;
+        SoundManager.Instance.SetBGMLevel(1f);
+        
     }
 
     void Pause()
@@ -36,12 +38,13 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         Paused = true;
+        SoundManager.Instance.SetBGMLevel(0.5f);
     }
 
     public void LoadMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("MenuMoritz");
+        SceneManager.LoadScene("Menu");
     }
 
     public void ExitGame()
