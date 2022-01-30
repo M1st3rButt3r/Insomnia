@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
                 startedReplay = true;
             }
         };
-        // player.GetComponent<SpriteRenderer>().color = Color.red;
+        player.GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, .6f);
         secondPlayer = Instantiate(playerPrefab);
         secondPlayer.transform.position = startPositionPlayer;
         Camera.Follow = secondPlayer.transform;
@@ -89,10 +89,12 @@ public class GameManager : MonoBehaviour
         PlayerController.playerController.canMove = false;
         deathUIModifyableText.text = reason;
         deathUI.SetActive(true);
+        Time.timeScale = 0f;
     }
 
     public void Restart()
     {
+        Time.timeScale = 1f;
         PlayerController.playerController.canMove = true;
         deathUI.SetActive(false);
         ResetAllObjects();
