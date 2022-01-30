@@ -126,7 +126,6 @@ public class GameManager : MonoBehaviour
         player.GetComponent<MovementRecorder>().StopReplay();
         player.transform.position = startPositionPlayer;
         secondPlayer.transform.position = startPositionPlayer;
-        MotherMushroom.ResetAll();
     }
 
     public void RestartFull()
