@@ -81,7 +81,19 @@ public class GameManager : MonoBehaviour
     
     private void FinishSecondRun()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        if (BedInteraction.Instance.playersInCollider == 2)
+        {
+            if (SceneManager.GetAllScenes().Length == SceneManager.GetActiveScene().buildIndex + 1)
+            {
+                SceneManager.LoadScene(0);
+            }
+            else
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
+            
+        }
+            
     }
 
     public void Die(string reason)
