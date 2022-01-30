@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour
     {
         if (BedInteraction.Instance.playersInCollider == 2)
         {
-            if (SceneManager.GetAllScenes().Length == SceneManager.GetActiveScene().buildIndex + 1)
+            if (SceneManager.GetAllScenes().Length <= SceneManager.GetActiveScene().buildIndex + 1)
             {
                 SceneManager.LoadScene(0);
             }
