@@ -1,4 +1,4 @@
-using System.Runtime.CompilerServices;
+using System.Collections.Generic;
 using Cinemachine;
 using TMPro;
 using UnityEngine;
@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour
 
     public GameObject player;
     public GameObject playerPrefab;
+
+    public List<IResettable> Resettables = new List<IResettable>();
+    
     public CinemachineVirtualCamera Camera;
 
     public GameObject deathUI;
@@ -29,7 +32,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        DontDestroyOnLoad(player);
         PlayerInput.Instance.Input += () =>
         { 
             if (!startedRecording)
@@ -45,6 +47,7 @@ public class GameManager : MonoBehaviour
 
     public void Finish()
     {
+        ResetAllObjects();
         if (secondRun)
         {
             FinishSecondRun();
@@ -58,9 +61,6 @@ public class GameManager : MonoBehaviour
         secondRun = true;
         player.transform.position = Vector3.zero;
         player.GetComponent<MovementRecorder>().StopRecording();
-        
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        
         PlayerInput.Instance.Input += () =>
         {
             if (!startedReplay)
@@ -90,6 +90,7 @@ public class GameManager : MonoBehaviour
     {
         PlayerController.playerController.canMove = true;
         deathUI.SetActive(false);
+        ResetAllObjects();
         if (secondRun)
         {
             RestartSecond();
@@ -105,16 +106,26 @@ public class GameManager : MonoBehaviour
         startedReplay = false;
         player.GetComponent<MovementRecorder>().StopReplay();
         player.transform.position = Vector3.zero;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        secondPlayer.transform.position = Vector3.zero;
+        MotherMushroom.ResetAll();
     }
 
     public void RestartFull()
     {
-        Destroy(player);
+        ResetAllObjects();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        startedReplay = false;
-        startedRecording = false;
-        secondRun = false;
-        Start();
+    }
+
+    public void AddToResettables(IResettable resettable)
+    {
+        Resettables.Add(resettable);
+    }
+
+    private void ResetAllObjects()
+    {
+        foreach (IResettable res in Resettables)
+        {
+            res.ResetAsset();
+        }
     }
 }
