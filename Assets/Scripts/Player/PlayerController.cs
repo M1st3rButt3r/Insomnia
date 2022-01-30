@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections;
 
@@ -21,6 +22,9 @@ public class PlayerController : MonoBehaviour
     private bool _iswalking;
     public AudioClip jump;
     public AudioClip levitate;
+
+    public Animator animator;
+    public SpriteRenderer renderer;
     
 
     private bool _grounded;
@@ -44,8 +48,23 @@ public class PlayerController : MonoBehaviour
         PlayerInput.Instance.JumpEnd += JumpEnd;
     }
 
+    private void Update()
+    {
+        if (PlayerInput.Instance.moveInput.x == 0 || !_grounded)
+        {
+            animator.SetBool("walking", false);
+        }
+        else
+        {
+            animator.SetBool("walking", true);
+        }
+
+
+    }
+
     void FixedUpdate()
     {
+
         Grounded();
         if(_isJumping) Jumping();
         if(canMove) Move(PlayerInput.Instance.moveInput);
@@ -53,6 +72,15 @@ public class PlayerController : MonoBehaviour
 
     public void Move(Vector2 input)
     {
+        if (input.x > 0)
+        {
+            renderer.flipX = false;
+        }
+        else if(input.x < 0)
+        {
+            renderer.flipX = true;
+        }
+        
         rb.velocity = new Vector2(input.x * speed * Time.fixedDeltaTime, rb.velocity.y);
         if(_oldmove != input && !_iswalking)
         {
@@ -85,6 +113,7 @@ public class PlayerController : MonoBehaviour
     public void JumpStart()
     {
         if(!_grounded && _lastGrounded + koyoteTime <= Time.time) return;
+        animator.SetTrigger("jump");
         rb.velocity = new Vector2(rb.velocity.x, 0);
         rb.AddForce(Vector2.up * jumpForce);
         _isJumping = true;

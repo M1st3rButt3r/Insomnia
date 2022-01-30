@@ -1,7 +1,16 @@
 fileFormatVersion: 2
-guid: 8335d492cf22c44d6b91c1df37cdc4e7
+guid: 924f8f4fc6ef73043ac96e6df987f587
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 869776613459545871
+    second: jump_tag_0
+  - first:
+      213: 2670078055987629092
+    second: jump_tag_1
+  - first:
+      213: -3342682383052651012
+    second: jump_tag_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -46,7 +55,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 900
+  spritePixelsToUnits: 291
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -103,148 +112,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Stehen_Geist_0
+      name: jump_tag_0
       rect:
         serializedVersion: 2
-        x: 350
-        y: 1756
-        width: 900
-        height: 1549
+        x: 129
+        y: 93
+        width: 291
+        height: 530
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 167a7c99a20d2c8f0800000000000000
-      internalID: -521625725434353823
+      spriteID: f0fc23fb831121c00800000000000000
+      internalID: 869776613459545871
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stehen_Geist_1
+      name: jump_tag_1
       rect:
         serializedVersion: 2
-        x: 1346
-        y: 1757
-        width: 900
-        height: 1549
+        x: 458
+        y: 106
+        width: 291
+        height: 530
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd6a81e9c6c72a840800000000000000
-      internalID: 5233882522908665564
+      spriteID: 42c45b168d50e0520800000000000000
+      internalID: 2670078055987629092
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stehen_Geist_2
+      name: jump_tag_2
       rect:
         serializedVersion: 2
-        x: 2280
-        y: 1750
-        width: 900
-        height: 1549
+        x: 780
+        y: 106
+        width: 291
+        height: 530
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f280675d7112d2140800000000000000
-      internalID: 4696446372666542127
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Stehen_Geist_3
-      rect:
-        serializedVersion: 2
-        x: 3255
-        y: 1753
-        width: 900
-        height: 1549
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 48f3d988b111f1150800000000000000
-      internalID: 5845409651303989124
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Stehen_Geist_4
-      rect:
-        serializedVersion: 2
-        x: 703
-        y: 133
-        width: 900
-        height: 1549
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 071c32d50f93d15a0800000000000000
-      internalID: -6549014578609274512
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Stehen_Geist_5
-      rect:
-        serializedVersion: 2
-        x: 1715
-        y: 135
-        width: 900
-        height: 1549
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ba1c5f55d43cd0800800000000000000
-      internalID: 580334663922729387
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Stehen_Geist_6
-      rect:
-        serializedVersion: 2
-        x: 2675
-        y: 135
-        width: 900
-        height: 1549
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fc7cdd084b4a09950800000000000000
-      internalID: 6453839361185007567
+      spriteID: cf5c03935186c91d0800000000000000
+      internalID: -3342682383052651012
       vertices: []
       indices: 
       edges: []

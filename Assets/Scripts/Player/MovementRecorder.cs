@@ -160,6 +160,7 @@ public class MovementRecorder : MonoBehaviour
 
     private void Move()
     {
+        if (moveInput.x == 0) return;
         _controller.Move(moveInput);
     }
 }
