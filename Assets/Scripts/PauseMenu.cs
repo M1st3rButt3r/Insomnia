@@ -41,7 +41,7 @@ public class PauseMenu : MonoBehaviour
     public void LoadMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("MenuMoritz");
+        SceneManager.LoadScene("Menu");
     }
 
     public void ExitGame()
