@@ -63,3 +63,8 @@ crashlytics-build.properties
 
 # Apple .DS_STORE files
 **/.DS_STORE
+
+# Unity 3D User Settings
+# If necessary to edit, just add it with git add
+/UserSettings/EditorUserSettings.assets
+
