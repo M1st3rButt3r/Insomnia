@@ -15,7 +15,7 @@ public class TriggerSwapStateAction : AbstractTriggerAction, IResettable
         GameManager.Instance.AddToResettables(this);
     }
 
-    public override void CollisionExit()
+    public override void CollisionExit(Collision2D _)
     {
         _isChanged = !_isChanged;
         GetComponent<SpriteRenderer>().sprite = _isChanged || !shouldToggleSprites ? toggleSprite: _initialSprite;

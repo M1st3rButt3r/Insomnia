@@ -15,11 +15,14 @@ public class TriggerFallAction : AbstractTriggerAction, IResettable
         GameManager.Instance.AddToResettables(this);
     }
 
-    public override void CollisionExit()
+    public override void CollisionExit(Collision2D col)
     {
         if (_hasFallen) return;
 
-        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+        if (col.gameObject.transform.position.y > gameObject.transform.position.y)
+        {
+            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+        }
     }
 
     public void OnCollisionEnter2D(Collision2D col)

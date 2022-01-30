@@ -1,5 +1,3 @@
-using System;
-using TMPro;
 using UnityEngine;
 
 public class TriggerHitDetection : MonoBehaviour
@@ -18,7 +16,7 @@ public class TriggerHitDetection : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D col)
     {
-        abstractTriggerAction.CollisionExit();
+        abstractTriggerAction.CollisionExit(col);
     }
 
     private void OnTriggerExit2D(Collider2D other)
