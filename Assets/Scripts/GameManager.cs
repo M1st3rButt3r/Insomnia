@@ -1,4 +1,4 @@
-using System.Runtime.CompilerServices;
+using System.Collections.Generic;
 using Cinemachine;
 using TMPro;
 using UnityEngine;
@@ -17,10 +17,15 @@ public class GameManager : MonoBehaviour
 
     public GameObject player;
     public GameObject playerPrefab;
+
+    public List<IResettable> Resettables = new List<IResettable>();
+    
     public CinemachineVirtualCamera Camera;
 
     public GameObject deathUI;
     public TMP_Text deathUIModifyableText;
+
+    private Vector3 startPositionPlayer;
 
     private void Awake()
     {
@@ -29,7 +34,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        DontDestroyOnLoad(player);
+        startPositionPlayer = player.transform.position;
+
         PlayerInput.Instance.Input += () =>
         { 
             if (!startedRecording)
@@ -45,6 +51,7 @@ public class GameManager : MonoBehaviour
 
     public void Finish()
     {
+        ResetAllObjects();
         if (secondRun)
         {
             FinishSecondRun();
@@ -56,11 +63,8 @@ public class GameManager : MonoBehaviour
     private void FinishFirstRun()
     {
         secondRun = true;
-        player.transform.position = Vector3.zero;
+        player.transform.position = startPositionPlayer;
         player.GetComponent<MovementRecorder>().StopRecording();
-        
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        
         PlayerInput.Instance.Input += () =>
         {
             if (!startedReplay)
@@ -69,14 +73,15 @@ public class GameManager : MonoBehaviour
                 startedReplay = true;
             }
         };
-        player.GetComponent<SpriteRenderer>().color = Color.red;
+        player.GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, .6f);
         secondPlayer = Instantiate(playerPrefab);
+        secondPlayer.transform.position = startPositionPlayer;
         Camera.Follow = secondPlayer.transform;
     }
     
     private void FinishSecondRun()
     {
-        Debug.Log("Finished Level");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void Die(string reason)
@@ -90,6 +95,7 @@ public class GameManager : MonoBehaviour
     {
         PlayerController.playerController.canMove = true;
         deathUI.SetActive(false);
+        ResetAllObjects();
         if (secondRun)
         {
             RestartSecond();
@@ -104,17 +110,27 @@ public class GameManager : MonoBehaviour
     {
         startedReplay = false;
         player.GetComponent<MovementRecorder>().StopReplay();
-        player.transform.position = Vector3.zero;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        player.transform.position = startPositionPlayer;
+        secondPlayer.transform.position = startPositionPlayer;
+        MotherMushroom.ResetAll();
     }
 
     public void RestartFull()
     {
-        Destroy(player);
+        ResetAllObjects();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        startedReplay = false;
-        startedRecording = false;
-        secondRun = false;
-        Start();
+    }
+
+    public void AddToResettables(IResettable resettable)
+    {
+        Resettables.Add(resettable);
+    }
+
+    private void ResetAllObjects()
+    {
+        foreach (IResettable res in Resettables)
+        {
+            res.ResetAsset();
+        }
     }
 }

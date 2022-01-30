@@ -58,8 +58,12 @@ public class MovementRecorder : MonoBehaviour
 
     private void Update()
     {
-        if(replay) Replay();
-        Move();
+        if (replay)
+        {
+            Replay();
+            Move();
+        }
+
     }
 
     public void StartRecording()
@@ -105,19 +109,26 @@ public class MovementRecorder : MonoBehaviour
     private void RecordMove()
     {
         if (recording)
-            MovementActions.Add(GetRecordingTime() + Random.Range(0.0f, 0.01f), new MovementAction<Vector2>(MovementActionType.Move, PlayerInput.Instance.moveInput));
+        {
+            MovementActions.Add(GetRecordingTime() + Random.Range(0.0f, 0.0001f), new MovementAction<Vector2>(MovementActionType.Move, PlayerInput.Instance.moveInput));
+        }
     }
 
     private void RecordJumpStart()
     {
-        if(recording)
-            MovementActions.Add(GetRecordingTime() + Random.Range(0.0f, 0.01f), new MovementAction(MovementActionType.JumpStart));
+        if (recording)
+        {
+            MovementActions.Add(GetRecordingTime() + Random.Range(0.0f, 0.0001f), new MovementAction(MovementActionType.JumpStart));
+        }
     }
     
     private void RecordJumpEnd()
     {
-        if(recording)
-            MovementActions.Add(GetRecordingTime() + Random.Range(0.0f, 0.01f), new MovementAction(MovementActionType.JumpEnd));
+        if (recording)
+        {
+            MovementActions.Add(GetRecordingTime() + Random.Range(0.0f, 0.0001f), new MovementAction(MovementActionType.JumpEnd));
+        }
+            
     }
 
     private void Replay()

@@ -9,10 +9,17 @@ public class RabenSpawner : MonoBehaviour
     public float maxTimeRange = 3f;
     private float _cooldown;
     private float _maxCooldown = 2;
+
+    public float minforWard = 1;
+    public float maxforWard = 3;
+    public float minupWard = 0.1f;
+    public float maxupWard = 0.3f;
+
+    public float lifeTime = 10f;
     void Update()
     {
         if(_cooldown > _maxCooldown){
-            Instantiate(Rabe);
+            Instantiate(Rabe, this.transform);
             _cooldown = 0;
             _maxCooldown = Random.Range(minTimeRange, maxTimeRange);
         }
