@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
     public GameObject deathUI;
     public TMP_Text deathUIModifyableText;
 
+    private Vector3 startPositionPlayer;
+
     private void Awake()
     {
         Instance = this;
@@ -32,6 +34,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        startPositionPlayer = player.transform.position;
+
         PlayerInput.Instance.Input += () =>
         { 
             if (!startedRecording)
@@ -59,7 +63,7 @@ public class GameManager : MonoBehaviour
     private void FinishFirstRun()
     {
         secondRun = true;
-        player.transform.position = Vector3.zero;
+        player.transform.position = startPositionPlayer;
         player.GetComponent<MovementRecorder>().StopRecording();
         PlayerInput.Instance.Input += () =>
         {
@@ -69,8 +73,9 @@ public class GameManager : MonoBehaviour
                 startedReplay = true;
             }
         };
-        player.GetComponent<SpriteRenderer>().color = Color.red;
+        // player.GetComponent<SpriteRenderer>().color = Color.red;
         secondPlayer = Instantiate(playerPrefab);
+        secondPlayer.transform.position = startPositionPlayer;
         Camera.Follow = secondPlayer.transform;
     }
     
@@ -105,8 +110,8 @@ public class GameManager : MonoBehaviour
     {
         startedReplay = false;
         player.GetComponent<MovementRecorder>().StopReplay();
-        player.transform.position = Vector3.zero;
-        secondPlayer.transform.position = Vector3.zero;
+        player.transform.position = startPositionPlayer;
+        secondPlayer.transform.position = startPositionPlayer;
         MotherMushroom.ResetAll();
     }
 
