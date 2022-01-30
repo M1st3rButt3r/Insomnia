@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public static int LevelCount = 4;
+    public static int LevelCount = 5;
     public static GameManager Instance;
     public bool startedRecording;
     public bool startedReplay;
