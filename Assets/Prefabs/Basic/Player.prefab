@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8465838954298759926}
   - component: {fileID: 8465838954298759927}
   - component: {fileID: 8465838954298759920}
+  - component: {fileID: 1687830069}
   m_Layer: 31
   m_Name: Player
   m_TagString: Player
@@ -156,6 +157,7 @@ MonoBehaviour:
   koyoteTime: 0.1
   jumpTime: 0.2
   canMove: 1
+  rb: {fileID: 0}
   jumptest: {fileID: 0}
 --- !u!114 &8465838954298759926
 MonoBehaviour:
@@ -212,3 +214,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f98380f9c6b2c54faf861d227011122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1687830069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8465838954298759928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1b2244d463544735aa2eeff0babf03b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerText: {fileID: 0}
