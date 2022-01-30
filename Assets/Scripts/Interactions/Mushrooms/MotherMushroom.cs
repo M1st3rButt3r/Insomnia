@@ -16,7 +16,7 @@ public enum ActiveDayTime
     Night
 }
 
-public class MotherMushroom : MonoBehaviour
+public class MotherMushroom : MonoBehaviour, IResettable
 {
     public float interactionTime;
     public ActiveDayTime activeDayTime;
@@ -26,11 +26,10 @@ public class MotherMushroom : MonoBehaviour
 
     private float? _interactingSince;
     private Collider2D _playerCollider;
-    private static List<MotherMushroom> _mushrooms = new List<MotherMushroom>();
 
     private void Start()
     {
-        _mushrooms.Add(this);
+        GameManager.Instance.AddToResettables(this);
     }
 
     private void FixedUpdate()
@@ -68,9 +67,8 @@ public class MotherMushroom : MonoBehaviour
                 
                 // Destroys mushroom in "top-only mode"
                 if (!destroyOnEffect) return;
-                Destroy(GetComponent<BoxCollider2D>());
-                Destroy(GetComponent<SpriteRenderer>());
-                _mushrooms.Remove(this);
+                GetComponent<BoxCollider2D>().enabled = false;
+                GetComponent<SpriteRenderer>().enabled = false;
             }
             
             return;
@@ -80,18 +78,14 @@ public class MotherMushroom : MonoBehaviour
         
         // Destroys mushroom in "normal mode"
         if (!destroyOnEffect) return;
-        Destroy(GetComponent<BoxCollider2D>());
-        Destroy(GetComponent<SpriteRenderer>());
-        _mushrooms.Remove(this);
+        GetComponent<BoxCollider2D>().enabled = false;
+        GetComponent<SpriteRenderer>().enabled = false;
     }
 
-    public static void ResetAll()
+    public void ResetAsset()
     {
-        foreach (MotherMushroom mushroom in _mushrooms)
-        {
-            Instantiate(mushroom.gameObject);
-            Destroy(mushroom.gameObject);
-        }
+        GetComponent<BoxCollider2D>().enabled = true;
+        GetComponent<SpriteRenderer>().enabled = true;
     }
 
     protected virtual void StartEffect() {}
