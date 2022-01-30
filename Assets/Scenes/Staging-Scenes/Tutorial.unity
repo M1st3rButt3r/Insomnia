@@ -312,6 +312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc4250244f3ebf14088ce224bce360f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathMenu: {fileID: 1785828381370679902}
   explainCanvas: {fileID: 1483364005}
   before: {fileID: 205910988}
   after: {fileID: 1087382720}
@@ -392,6 +393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc4250244f3ebf14088ce224bce360f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathMenu: {fileID: 1785828381370679902}
   explainCanvas: {fileID: 1483364005}
   before: {fileID: 205910988}
   after: {fileID: 1087382720}
@@ -1076,6 +1078,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc4250244f3ebf14088ce224bce360f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathMenu: {fileID: 1785828381370679902}
   explainCanvas: {fileID: 1483364005}
   before: {fileID: 205910988}
   after: {fileID: 1087382720}
@@ -1204,6 +1207,10 @@ PrefabInstance:
     - target: {fileID: 5537851821269084808, guid: 6948ea949e0a7446b8aa0e226cadf2d1, type: 3}
       propertyPath: m_text
       value: Timer
+      objectReference: {fileID: 0}
+    - target: {fileID: 5537851821269084822, guid: 6948ea949e0a7446b8aa0e226cadf2d1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5537851823361804753, guid: 6948ea949e0a7446b8aa0e226cadf2d1, type: 3}
       propertyPath: m_UiScaleMode
@@ -1579,6 +1586,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc4250244f3ebf14088ce224bce360f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathMenu: {fileID: 1785828381370679902}
   explainCanvas: {fileID: 281964641}
   before: {fileID: 205910988}
   after: {fileID: 1087382720}
@@ -2249,6 +2257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc4250244f3ebf14088ce224bce360f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathMenu: {fileID: 1785828381370679902}
   explainCanvas: {fileID: 281964641}
   before: {fileID: 205910988}
   after: {fileID: 1087382720}
@@ -4704,6 +4713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc4250244f3ebf14088ce224bce360f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathMenu: {fileID: 1785828381370679902}
   explainCanvas: {fileID: 1483364005}
   before: {fileID: 205910988}
   after: {fileID: 1087382720}
@@ -5173,6 +5183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc4250244f3ebf14088ce224bce360f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathMenu: {fileID: 1785828381370679902}
   explainCanvas: {fileID: 281964641}
   before: {fileID: 205910988}
   after: {fileID: 1087382720}
@@ -5432,6 +5443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc4250244f3ebf14088ce224bce360f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathMenu: {fileID: 1785828381370679902}
   explainCanvas: {fileID: 281964641}
   before: {fileID: 205910988}
   after: {fileID: 1087382720}
@@ -5712,6 +5724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc4250244f3ebf14088ce224bce360f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathMenu: {fileID: 1785828381370679902}
   explainCanvas: {fileID: 1483364005}
   before: {fileID: 205910988}
   after: {fileID: 1087382720}
@@ -5968,6 +5981,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc4250244f3ebf14088ce224bce360f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathMenu: {fileID: 1785828381370679902}
   explainCanvas: {fileID: 281964641}
   before: {fileID: 205910988}
   after: {fileID: 1087382720}
@@ -6376,6 +6390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc4250244f3ebf14088ce224bce360f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathMenu: {fileID: 1785828381370679902}
   explainCanvas: {fileID: 281964641}
   before: {fileID: 205910988}
   after: {fileID: 1087382720}
