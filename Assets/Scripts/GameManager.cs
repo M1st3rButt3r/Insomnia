@@ -12,9 +12,10 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector]
     public bool secondRun;
+    [HideInInspector]
+    public GameObject secondPlayer;
 
     public GameObject player;
-    private GameObject secondPlayer;
     public GameObject playerPrefab;
     public CinemachineVirtualCamera Camera;
 
