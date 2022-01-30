@@ -17,10 +17,16 @@ public class PlayerInput : MonoBehaviour
     public Action Input;
     public Action Restart;
     public Action RestartHold;
+    public Action Pause;
 
     private void Awake()
     {
         Instance = this;
+    }
+
+    private void OnPause()
+    {
+        Pause?.Invoke();
     }
 
     private void OnMove(InputValue value)

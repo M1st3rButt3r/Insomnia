@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.IO.LowLevel.Unsafe;
@@ -9,8 +10,14 @@ public class PauseMenu : MonoBehaviour
     public static bool Paused = false;
 
     public GameObject pauseMenuUI;
-    // Update is called once per frame
-    private void OnPause()
+
+
+    private void Start()
+    {
+        PlayerInput.Instance.Pause += TogglePause;
+    }
+
+    private void TogglePause()
     {
         if (Paused)
         {
