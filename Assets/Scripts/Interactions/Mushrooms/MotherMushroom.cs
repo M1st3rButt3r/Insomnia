@@ -63,7 +63,7 @@ public class MotherMushroom : MonoBehaviour, IResettable
             if (other.gameObject.transform.position.y >
                 gameObject.transform.position.y + (gameObject.transform.localScale.y / 2))
             {
-                StartTopEffect();
+                StartTopEffect(other);
                 
                 // Destroys mushroom in "top-only mode"
                 if (!destroyOnEffect) return;
@@ -90,7 +90,7 @@ public class MotherMushroom : MonoBehaviour, IResettable
 
     protected virtual void StartEffect() {}
 
-    protected virtual void StartTopEffect() {}
+    protected virtual void StartTopEffect(Collider2D other) {}
 
     protected virtual void EndEffect() {}
 }
