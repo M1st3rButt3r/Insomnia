@@ -332,6 +332,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 8341226574113425600, guid: e7cd34eac15c246768fcf22739ebc016, type: 3}
+      propertyPath: targetAngle
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8341226574113425600, guid: e7cd34eac15c246768fcf22739ebc016, type: 3}
       propertyPath: fallingAcceleration
       value: 60
       objectReference: {fileID: 0}
@@ -394,6 +398,10 @@ PrefabInstance:
     - target: {fileID: 8341226574113425607, guid: e7cd34eac15c246768fcf22739ebc016, type: 3}
       propertyPath: m_Name
       value: Tag_Baum_03_Falling
+      objectReference: {fileID: 0}
+    - target: {fileID: 8341226574113425607, guid: e7cd34eac15c246768fcf22739ebc016, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7cd34eac15c246768fcf22739ebc016, type: 3}
@@ -486,7 +494,7 @@ GameObject:
   - component: {fileID: 47710211}
   - component: {fileID: 47710210}
   - component: {fileID: 47710209}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Nacht_Miniast (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -930,7 +938,7 @@ GameObject:
   - component: {fileID: 452715851}
   - component: {fileID: 452715850}
   - component: {fileID: 452715849}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Nacht_Miniast (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2127,7 +2135,7 @@ GameObject:
   - component: {fileID: 1304053064}
   - component: {fileID: 1304053063}
   - component: {fileID: 1304053062}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Nacht_Miniast
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3835,6 +3843,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4782686654102515007, guid: e9da844c81c6146b4ac5d542db93a834, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8644802367717985614, guid: e9da844c81c6146b4ac5d542db93a834, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8644802367717985614, guid: e9da844c81c6146b4ac5d542db93a834, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8644802367717985614, guid: e9da844c81c6146b4ac5d542db93a834, type: 3}
+      propertyPath: m_Color.r
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
