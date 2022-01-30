@@ -4,6 +4,7 @@ public class TriggerMoveAction : AbstractTriggerAction
 {
     [SerializeField] private Vector3 moveToPosition;
     [SerializeField] private float speed;
+    [SerializeField] private float spinRot;
     [SerializeField] private bool spins;
 
     private bool _theySeeMeRolling;
@@ -21,7 +22,7 @@ public class TriggerMoveAction : AbstractTriggerAction
 
         if (spins)
         {
-            transform.Rotate(new Vector3(0, 0,speed * Time.deltaTime * 180 / Mathf.PI * GetComponent<CircleCollider2D>().radius));
+            transform.Rotate(new Vector3(0, 0,spinRot * Time.deltaTime * 180 / Mathf.PI * GetComponent<CircleCollider2D>().radius));
         }
     }
 
