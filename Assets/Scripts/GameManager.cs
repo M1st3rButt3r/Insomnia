@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour
     
     private void FinishSecondRun()
     {
-        Debug.Log("Finished Level");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void Die(string reason)

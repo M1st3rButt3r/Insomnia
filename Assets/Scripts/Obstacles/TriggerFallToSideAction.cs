@@ -7,6 +7,8 @@ public class TriggerFallToSideAction : AbstractTriggerAction
     private bool _isFalling = false;
     private float _fallingSpeed = 0.0f;
 
+    public float targetAngle;
+
     private float _offsetToRotation;
 
     private void Awake()
@@ -21,10 +23,10 @@ public class TriggerFallToSideAction : AbstractTriggerAction
             return;
         }
 
-        if (transform.rotation.eulerAngles.z <= 270 + _offsetToRotation && transform.rotation.eulerAngles.z > 0 + _offsetToRotation)
+        if (transform.rotation.eulerAngles.z <= targetAngle + _offsetToRotation && transform.rotation.eulerAngles.z > 0 + _offsetToRotation)
         {
             _isFalling = false;
-            transform.rotation = Quaternion.Euler(new Vector3(0, 0, 270 + _offsetToRotation));
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, targetAngle + _offsetToRotation));
             return;
         }
 
