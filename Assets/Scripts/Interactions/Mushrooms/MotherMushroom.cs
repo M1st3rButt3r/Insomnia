@@ -1,5 +1,13 @@
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
+using Vector2 = UnityEngine.Vector2;
+
+public enum ActiveSides
+{
+    All,
+    Top
+}
 
 public enum ActiveDayTime
 {
@@ -12,6 +20,7 @@ public class MotherMushroom : MonoBehaviour
 {
     public float interactionTime;
     public ActiveDayTime activeDayTime;
+    public ActiveSides activeSide;
     public bool dieOnWrongDayTime;
     public bool destroyOnEffect;
 
@@ -47,18 +56,28 @@ public class MotherMushroom : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (!other.gameObject.CompareTag("Player"))
         {
-            _interactingSince = Time.time;
-            
-            if (destroyOnEffect)
-            {
-                Destroy(GetComponent<BoxCollider2D>());
-                Destroy(GetComponent<SpriteRenderer>());
-            }
-
-            StartEffect();
+            return;
         }
+
+        _interactingSince = Time.time;
+
+        if (destroyOnEffect)
+        {
+            Destroy(GetComponent<BoxCollider2D>());
+            Destroy(GetComponent<SpriteRenderer>());
+        }
+
+        if ((activeSide == ActiveSides.Top) &&
+            (other.gameObject.transform.position.y > gameObject.transform.position.y +
+                (gameObject.transform.localScale.y / 2)))
+        {
+            StartTopEffect();
+            return;
+        }
+
+        StartEffect();
     }
 
     public static void ResetAll()
@@ -73,6 +92,8 @@ public class MotherMushroom : MonoBehaviour
     protected virtual void UpdateEffect() {}
 
     protected virtual void StartEffect() {}
+
+    protected virtual void StartTopEffect() {}
 
     protected virtual void EndEffect() {}
 }
