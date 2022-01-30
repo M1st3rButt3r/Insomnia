@@ -6,8 +6,13 @@ public class JumpMushroom : MotherMushroom
 
     protected override void StartTopEffect()
     {
-        Debug.Log("Applying Effect 'Jump Boost'");
-        PlayerController.playerController.rb.velocity = new Vector2(PlayerController.playerController.rb.velocity.x, 0);
-        PlayerController.playerController.rb.AddForce(new Vector2(0, JumpBoost));
+        GameObject go = GameManager.Instance.secondRun ?
+            GameManager.Instance.secondPlayer : GameManager.Instance.player;
+        
+        Rigidbody2D rb = go.GetComponent<Rigidbody2D>();
+        Debug.Log($"Applying Effect 'Jump Boost' to: {go.name}");
+        
+        rb.velocity = new Vector2(rb.velocity.x, 0);
+        rb.AddForce(new Vector2(0, JumpBoost));
     }
 }

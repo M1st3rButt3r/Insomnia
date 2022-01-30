@@ -35,18 +35,8 @@ public class MotherMushroom : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_interactingSince == null)
+        if (_interactingSince == null || _interactingSince + interactionTime <= Time.time)
         {
-            return;
-        }
-
-        if (_interactingSince + interactionTime >= Time.time)
-        {
-            ActiveDayTime currentTime = GameManager.Instance.secondRun ? ActiveDayTime.Day : ActiveDayTime.Night;
-            if (activeDayTime == ActiveDayTime.DayAndNight || activeDayTime == currentTime)
-                UpdateEffect();
-            else if (dieOnWrongDayTime)
-                GameManager.Instance.Die("You ate the mushroom at the wrong time!");
             return;
         }
 
@@ -61,23 +51,38 @@ public class MotherMushroom : MonoBehaviour
             return;
         }
 
-        _interactingSince = Time.time;
-
-        if (destroyOnEffect)
+        ActiveDayTime currentTime = GameManager.Instance.secondRun ? ActiveDayTime.Night : ActiveDayTime.Day;
+        if (activeDayTime != ActiveDayTime.DayAndNight && activeDayTime != currentTime && dieOnWrongDayTime)
         {
-            Destroy(GetComponent<BoxCollider2D>());
-            Destroy(GetComponent<SpriteRenderer>());
+            GameManager.Instance.Die("You ate the mushroom at the wrong time!");
         }
 
-        if ((activeSide == ActiveSides.Top) &&
-            (other.gameObject.transform.position.y > gameObject.transform.position.y +
-                (gameObject.transform.localScale.y / 2)))
+        _interactingSince = Time.time;
+ 
+        if (activeSide == ActiveSides.Top)
         {
-            StartTopEffect();
+            if (other.gameObject.transform.position.y >
+                gameObject.transform.position.y + (gameObject.transform.localScale.y / 2))
+            {
+                StartTopEffect();
+                
+                // Destroys mushroom in "top-only mode"
+                if (!destroyOnEffect) return;
+                Destroy(GetComponent<BoxCollider2D>());
+                Destroy(GetComponent<SpriteRenderer>());
+                _mushrooms.Remove(this);
+            }
+            
             return;
         }
 
         StartEffect();
+        
+        // Destroys mushroom in "normal mode"
+        if (!destroyOnEffect) return;
+        Destroy(GetComponent<BoxCollider2D>());
+        Destroy(GetComponent<SpriteRenderer>());
+        _mushrooms.Remove(this);
     }
 
     public static void ResetAll()
@@ -88,8 +93,6 @@ public class MotherMushroom : MonoBehaviour
             Destroy(mushroom.gameObject);
         }
     }
-
-    protected virtual void UpdateEffect() {}
 
     protected virtual void StartEffect() {}
 

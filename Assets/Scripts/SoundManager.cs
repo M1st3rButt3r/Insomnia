@@ -25,12 +25,16 @@ public class SoundManager : MonoBehaviour
     {
         audioMixer.SetFloat("Master_Volume", Mathf.Log10(sliderValue) * 20);
     }
+    
+    public void SetBGMLevel (float sliderValue)
+    {
+        audioMixer.SetFloat("BGM_Volume", Mathf.Log10(sliderValue) * 20);
+    }
 
     public void PlayMenuClick()
     {
         PlayBGM(menuclick1, Menu);
     }
-
 
     public AudioSource PlayBGM(AudioClip clip, string audioMixerGroup, bool loop = false, float spatialBlend = 0, float volume = 1)
     {
