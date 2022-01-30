@@ -1,8 +1,19 @@
+using System;
 using UnityEngine;
 
-public class TriggerFallAction : AbstractTriggerAction
+public class TriggerFallAction : AbstractTriggerAction, IResettable
 {
     private bool _hasFallen = false;
+
+    private Vector3 initialPosition;
+    private Quaternion initialRotation;
+
+    private void Start()
+    {
+        initialPosition = this.transform.position;
+        initialRotation = this.transform.rotation;
+        GameManager.Instance.AddToResettables(this);
+    }
 
     public override void CollisionExit(Collision2D col)
     {
@@ -20,8 +31,15 @@ public class TriggerFallAction : AbstractTriggerAction
 
         if (!col.collider.CompareTag("Ground")) return;
         
-        Debug.Log("TouchDown");
         _hasFallen = true;
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+    }
+
+    public void ResetAsset()
+    {
+        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        this.transform.rotation = initialRotation;
+        this.transform.position = initialPosition;
+        _hasFallen = true;
     }
 }

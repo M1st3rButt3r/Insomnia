@@ -1,6 +1,7 @@
+using System;
 using UnityEngine;
 
-public class TriggerMoveAction : AbstractTriggerAction
+public class TriggerMoveAction : AbstractTriggerAction, IResettable
 {
     [SerializeField] private Vector3 moveToPosition;
     [SerializeField] private float speed;
@@ -8,6 +9,14 @@ public class TriggerMoveAction : AbstractTriggerAction
     [SerializeField] private bool spins;
 
     private bool _theySeeMeRolling;
+
+    private Transform initialTransform;
+
+    private void Start()
+    {
+        initialTransform = this.transform;
+        GameManager.Instance.AddToResettables(this);
+    }
 
     private void Update()
     {
@@ -29,5 +38,12 @@ public class TriggerMoveAction : AbstractTriggerAction
     public override void CollisionAction()
     {
         _theySeeMeRolling = true;
+    }
+
+    public void ResetAsset()
+    {
+        _theySeeMeRolling = false;
+        this.transform.position = initialTransform.position;
+        this.transform.rotation = initialTransform.rotation;
     }
 }

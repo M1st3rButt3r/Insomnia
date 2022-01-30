@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TriggerFallToSideAction : AbstractTriggerAction
+public class TriggerFallToSideAction : AbstractTriggerAction, IResettable
 {
     [SerializeField] private float fallingAcceleration;
 
@@ -11,9 +11,13 @@ public class TriggerFallToSideAction : AbstractTriggerAction
 
     private float _offsetToRotation;
 
-    private void Awake()
-    {
+    private Quaternion initialRot;
+
+    private void Start()
+    {   
         _offsetToRotation = this.transform.rotation.eulerAngles.z;
+        initialRot = this.transform.rotation;
+        GameManager.Instance.AddToResettables(this);
     }
 
     private void Update()
@@ -37,5 +41,12 @@ public class TriggerFallToSideAction : AbstractTriggerAction
     public override void CollisionAction()
     {
         _isFalling = true;
+    }
+
+    public void ResetAsset()
+    {
+        _isFalling = false;
+        _fallingSpeed = 0;
+        transform.rotation = initialRot;
     }
 }
