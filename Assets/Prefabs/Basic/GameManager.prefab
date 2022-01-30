@@ -45,5 +45,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startedRecording: 0
   startedReplay: 0
+  secondRun: 0
+  secondPlayer: {fileID: 0}
   player: {fileID: 0}
   playerPrefab: {fileID: 8465838954298759928, guid: 2a85d6246f69e8844878cdde02268622, type: 3}
+  Camera: {fileID: 0}
+  deathUI: {fileID: 0}
+  deathUIModifyableText: {fileID: 0}
