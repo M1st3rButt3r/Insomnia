@@ -33,9 +33,9 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
+  - Obstacles
+  - Trees
+  - Translucent Player
   - Player
   m_SortingLayers:
   - name: Background
