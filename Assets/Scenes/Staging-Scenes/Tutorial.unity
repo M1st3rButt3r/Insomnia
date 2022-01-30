@@ -265,7 +265,7 @@ MonoBehaviour:
   afterText: 
   keyChar: 
   explainTextElement: {fileID: 1242852576}
-  explainTextText: Sometimes, things break inthis game...
+  explainTextText: Sometimes, things break in this game...
 --- !u!61 &150480167
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4451,8 +4451,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 48
+  m_fontSizeBase: 48
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
