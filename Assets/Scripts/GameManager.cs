@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
                 startedReplay = true;
             }
         };
-        // player.GetComponent<SpriteRenderer>().color = Color.red;
+        player.GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, .6f);
         secondPlayer = Instantiate(playerPrefab);
         secondPlayer.transform.position = startPositionPlayer;
         Camera.Follow = secondPlayer.transform;
