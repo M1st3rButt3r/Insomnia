@@ -19,7 +19,7 @@ public class RabenSpawner : MonoBehaviour
     void Update()
     {
         if(_cooldown > _maxCooldown){
-            Instantiate(Rabe);
+            Instantiate(Rabe, this.transform);
             _cooldown = 0;
             _maxCooldown = Random.Range(minTimeRange, maxTimeRange);
         }
