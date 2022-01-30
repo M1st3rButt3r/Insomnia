@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3820813538824888339}
   - component: {fileID: 3820813538824888336}
   - component: {fileID: 3820813538824888337}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoleTree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,7 +172,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3820813538981939407}
   - component: {fileID: 3820813538981939406}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tag_Baum_Lucke_Hinten
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -254,7 +254,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3820813540609643542}
   - component: {fileID: 3820813540609643561}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tag_Baum_Lucke_Oben
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -336,7 +336,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3820813540832380255}
   - component: {fileID: 3820813540832380254}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tag_Baum_Lucke_Unten
   m_TagString: Untagged
   m_Icon: {fileID: 0}

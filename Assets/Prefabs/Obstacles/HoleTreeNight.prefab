@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7119575749395801524}
   - component: {fileID: 8088796778100950466}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Nacht_Baum_Lucke_Hinten
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3467021993023045499}
   - component: {fileID: 4050219159508078324}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Nacht_Baum_Lucke_Unten
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5694870728337589495}
   - component: {fileID: 6096799698768804576}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Nacht_Baum_Lucke_Oben
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -257,7 +257,7 @@ GameObject:
   - component: {fileID: 3934310988354720711}
   - component: {fileID: 7034127572649876062}
   - component: {fileID: 3828164347622240505}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoleTreeNight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
