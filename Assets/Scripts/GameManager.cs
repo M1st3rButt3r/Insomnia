@@ -89,10 +89,12 @@ public class GameManager : MonoBehaviour
         PlayerController.playerController.canMove = false;
         deathUIModifyableText.text = reason;
         deathUI.SetActive(true);
+        Time.timeScale = 0f;
     }
 
     public void Restart()
     {
+        Time.timeScale = 1f;
         PlayerController.playerController.canMove = true;
         deathUI.SetActive(false);
         ResetAllObjects();
