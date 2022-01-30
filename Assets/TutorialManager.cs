@@ -9,6 +9,7 @@ public enum ExplainType
 
 public class TutorialManager : MonoBehaviour
 {
+    public GameObject deathMenu;
     public GameObject explainCanvas;
     public TMP_Text before;
     public TMP_Text after;
@@ -22,6 +23,12 @@ public class TutorialManager : MonoBehaviour
 
     public TMP_Text explainTextElement;
     public string explainTextText;
+
+    private void Update()
+    {
+        if (deathMenu.activeSelf)
+            gameObject.SetActive(false);
+    }
 
     private void OnTriggerEnter2D(Collider2D col)
     {

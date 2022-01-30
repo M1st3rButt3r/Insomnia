@@ -123,8 +123,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionTime: 0.6
-  activeDayTime: 1
+  activeDayTime: 0
   activeSide: 1
   dieOnWrongDayTime: 1
-  destroyOnEffect: 1
+  destroyOnEffect: 0
   JumpBoost: 2000
