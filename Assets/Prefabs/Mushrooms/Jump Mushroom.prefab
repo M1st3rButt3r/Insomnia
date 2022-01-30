@@ -127,4 +127,4 @@ MonoBehaviour:
   activeSide: 1
   dieOnWrongDayTime: 1
   destroyOnEffect: 1
-  JumpBoost: 1500
+  JumpBoost: 2000
