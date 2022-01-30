@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public static int LevelCount = 4;
     public static GameManager Instance;
     public bool startedRecording;
     public bool startedReplay;
@@ -83,7 +84,7 @@ public class GameManager : MonoBehaviour
     {
         if (BedInteraction.Instance.playersInCollider == 2)
         {
-            if (SceneManager.GetAllScenes().Length <= SceneManager.GetActiveScene().buildIndex + 1)
+            if (LevelCount <= SceneManager.GetActiveScene().buildIndex + 1)
             {
                 SceneManager.LoadScene(0);
             }
