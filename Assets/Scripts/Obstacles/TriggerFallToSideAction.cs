@@ -13,6 +13,8 @@ public class TriggerFallToSideAction : AbstractTriggerAction, IResettable
 
     private Quaternion initialRot;
 
+    private float totalAmountFallen = 0f;
+
     private void Start()
     {   
         _offsetToRotation = this.transform.rotation.eulerAngles.z;
@@ -27,15 +29,16 @@ public class TriggerFallToSideAction : AbstractTriggerAction, IResettable
             return;
         }
 
-        if (transform.rotation.eulerAngles.z <= targetAngle + _offsetToRotation && transform.rotation.eulerAngles.z > 0 + _offsetToRotation)
+        if (totalAmountFallen > 90)
         {
-            _isFalling = false;
-            transform.rotation = Quaternion.Euler(new Vector3(0, 0, targetAngle + _offsetToRotation));
+            transform.rotation = Quaternion.Euler(new Vector3(0,0,targetAngle + _offsetToRotation));
             return;
         }
 
-        _fallingSpeed += fallingAcceleration * Time.deltaTime;
-        transform.Rotate(new Vector3(0, 0, -_fallingSpeed * Time.deltaTime));
+        _fallingSpeed -= fallingAcceleration * Time.deltaTime;
+        float amountFallen = -_fallingSpeed * Time.deltaTime; 
+        totalAmountFallen += amountFallen; 
+        transform.Rotate(new Vector3(0, 0, amountFallen));
     }
 
     public override void CollisionAction()
@@ -47,6 +50,7 @@ public class TriggerFallToSideAction : AbstractTriggerAction, IResettable
     {
         _isFalling = false;
         _fallingSpeed = 0;
+        totalAmountFallen = 0f;
         transform.rotation = initialRot;
     }
 }
