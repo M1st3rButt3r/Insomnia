@@ -12,21 +12,19 @@ public class Timer : MonoBehaviour
     private float startTime;
     private bool finnished = false;
     private List<float> results = new List<float>();
-
-    // Start is called before the first frame update
+    
     void Start()
     {
         startTime = Time.time;
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         if (finnished)
             return;
         float t = Time.time - startTime;
         
-        timerText.text = TimeSpan.FromSeconds(t).ToString("mm':'ss':'ff");
+        timerText.text = TimeSpan.FromSeconds(t).ToString("m'.'ss");
     }
 
     private void Finnished()
